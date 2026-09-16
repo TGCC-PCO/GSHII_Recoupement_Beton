@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Recoupement Béton | Project Control</title>
+
+    <!-- Police -->
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet"
+          href="style/Style.css">
+</head>
+
+
+<body>
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header class="header">
+
+        <div class="header-overlay"></div>
+
+        <div class="header-content">
+
+            <!-- Logo -->
+            <div class="brand">
+                <span>PROJECT CONTROL</span>
+            </div>
+
+            <!-- Titre -->
+
+            <h1>Recoupement Béton</h1>
+
+            <p class="header-description">
+                Comparaison des quantités Béton par date,
+                responsable et type.
+            </p>
+
+        </div>
+
+
+        <!-- Badge période -->
+
+        <div class="period-card">
+
+            <div class="calendar-icon">
+
+                <svg viewBox="0 0 64 64"
+                     xmlns="http://www.w3.org/2000/svg">
+
+                    <rect x="10"
+                          y="14"
+                          width="44"
+                          height="40"
+                          rx="5"
+                          fill="none"
+                          stroke="currentColor"
+                          stroke-width="4"/>
+
+                    <line x1="10"
+                          y1="26"
+                          x2="54"
+                          y2="26"
+                          stroke="currentColor"
+                          stroke-width="4"/>
+
+                    <line x1="22"
+                          y1="8"
+                          x2="22"
+                          y2="20"
+                          stroke="currentColor"
+                          stroke-width="4"
+                          stroke-linecap="round"/>
+
+                    <line x1="42"
+                          y1="8"
+                          x2="42"
+                          y2="20"
+                          stroke="currentColor"
+                          stroke-width="4"
+                          stroke-linecap="round"/>
+
+                </svg>
+
+            </div>
+
+            <div>
+
+                <span id="headerMois">
+                    AOÛT
+                </span>
+
+                <strong id="headerAnnee">
+                    2026
+                </strong>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         DASHBOARD
+    ====================================================== -->
+
+    <main class="dashboard">
+
+
+        <!-- =================================================
+             KPI + FILTRE
+        ================================================== -->
+
+        <section class="top-grid">
+
+
+            <!-- FILTRE MOIS -->
+
+            <div class="filter-card">
+
+                <div class="filter-icon">
+
+                    <svg viewBox="0 0 64 64"
+                         xmlns="http://www.w3.org/2000/svg">
+
+                        <rect x="10"
+                              y="14"
+                              width="44"
+                              height="40"
+                              rx="5"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="4"/>
+
+                        <line x1="10"
+                              y1="26"
+                              x2="54"
+                              y2="26"
+                              stroke="currentColor"
+                              stroke-width="4"/>
+
+                        <line x1="22"
+                              y1="8"
+                              x2="22"
+                              y2="20"
+                              stroke="currentColor"
+                              stroke-width="4"
+                              stroke-linecap="round"/>
+
+                        <line x1="42"
+                              y1="8"
+                              x2="42"
+                              y2="20"
+                              stroke="currentColor"
+                              stroke-width="4"
+                              stroke-linecap="round"/>
+
+                    </svg>
+
+                </div>
+
+
+                <div class="filter-content">
+
+                    <span class="filter-label">
+                        Mois
+                    </span>
+
+                    <div class="select-wrapper">
+
+                        <select id="filtreMois">
+                        </select>
+
+                        <span class="select-arrow">
+                            ⌄
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- KPI 1 Getionnaire-->
+
+            <div class="kpi-card">
+
+                <div class="kpi-icon">
+
+                    <div class="kpi-icon">
+    <svg viewBox="0 0 64 64"
+     xmlns="http://www.w3.org/2000/svg"
+     fill="none"
+     stroke="currentColor"
+     stroke-linecap="round"
+     stroke-linejoin="round">
+
+    <!-- Tambour -->
+    <path d="M10 19
+             C10 15 14 12 20 11
+             L35 14
+             C40 15 43 19 42 24
+             L38 39
+             C37 43 33 45 28 44
+             L17 41
+             C13 40 11 37 11 33
+             Z"
+          stroke-width="2.8"/>
+
+    <!-- Structure du tambour -->
+    <path d="M19 12
+             C23 20 26 30 29 44"
+          stroke-width="2.2"/>
+
+    <path d="M34 14
+             C34 22 34 31 34 41"
+          stroke-width="2.2"/>
+
+    <!-- Partie arrière / support -->
+    <path d="M10 19
+             L7 29
+             L13 37"
+          stroke-width="2.8"/>
+
+    <circle cx="9" cy="19" r="3.5"
+            stroke-width="2.5"/>
+
+    <!-- Châssis -->
+    <path d="M9 43
+             H53
+             L57 39"
+          stroke-width="2.8"/>
+
+    <!-- Cabine -->
+    <path d="M40 23
+             H49
+             C53 23 55 26 55 30
+             V43
+             H39
+             V27
+             C39 25 40 23 40 23Z"
+          stroke-width="2.8"/>
+
+    <!-- Vitre -->
+    <path d="M43 26
+             H49
+             C51 26 52 28 52 30
+             V33
+             H43
+             Z"
+          stroke-width="2.1"/>
+
+    <!-- Poignée -->
+    <path d="M45 36 H49"
+          stroke-width="2.1"/>
+
+    <!-- Roue arrière -->
+    <circle cx="18" cy="47" r="6"
+            stroke-width="2.8"/>
+
+    <circle cx="18" cy="47" r="2"
+            fill="currentColor"
+            stroke="none"/>
+
+    <!-- Roue avant -->
+    <circle cx="47" cy="47" r="6"
+            stroke-width="2.8"/>
+
+    <circle cx="47" cy="47" r="2"
+            fill="currentColor"
+            stroke="none"/>
+
+    <!-- Marche -->
+    <path d="M36 47 H42"
+          stroke-width="2.5"/>
+
+    <!-- Petite ligne au sol -->
+    <path d="M8 55 H56"
+          stroke-width="1.8"
+          opacity=".45"/>
+
+</svg>
+    </div>
+
+                </div>
+
+
+                <div class="kpi-content">
+
+                    <span class="kpiTitre">
+                        QUANTITÉ GESTIONNAIRE
+                    </span>
+
+                    <strong class="kpiValue"
+                            id="kpiRB">
+                        0 m³
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- KPI 2 Travaux-->
+
+            <div class="kpi-card">
+
+                <div class="kpi-icon truck-icon">
+
+                    <div class="kpi-icon">
+    <svg viewBox="0 0 64 64"
+     xmlns="http://www.w3.org/2000/svg"
+     fill="none"
+     stroke="currentColor"
+     stroke-linecap="round"
+     stroke-linejoin="round">
+
+    <!-- Sommet de la grue -->
+    <path d="M29 11 L36 5 L43 11"
+          stroke-width="2.8"/>
+
+    <!-- Flèche supérieure -->
+    <path d="M36 5
+             L57 13
+             H38"
+          stroke-width="2.8"/>
+
+    <!-- Contre-flèche -->
+    <path d="M36 5
+             L21 13
+             H13"
+          stroke-width="2.8"/>
+
+    <!-- Treillis de la flèche -->
+    <path d="M38 13 H58"
+          stroke-width="2.5"/>
+
+    <path d="M40 13 L44 19
+             M46 13 L50 19
+             M52 13 L56 19"
+          stroke-width="1.8"/>
+
+    <path d="M40 19 H57"
+          stroke-width="2"/>
+
+    <!-- Cabine -->
+    <path d="M30 13
+             H39
+             V25
+             H30
+             Z"
+          stroke-width="2.8"/>
+
+    <!-- Vitre cabine -->
+    <path d="M33 16 H37 V22 H33 Z"
+          stroke-width="1.8"/>
+
+    <!-- Mât -->
+    <path d="M30 25 V55
+             M37 25 V55"
+          stroke-width="2.8"/>
+
+    <!-- Treillis du mât -->
+    <path d="M30 27 L37 33
+             M37 27 L30 33
+
+             M30 34 L37 40
+             M37 34 L30 40
+
+             M30 41 L37 47
+             M37 41 L30 47
+
+             M30 48 L37 54
+             M37 48 L30 54"
+          stroke-width="1.7"/>
+
+    <!-- Câble -->
+    <path d="M54 19 V37"
+          stroke-width="2"/>
+
+    <!-- Poulie -->
+    <circle cx="54" cy="38" r="2.5"
+            stroke-width="1.8"/>
+
+    <!-- Crochet -->
+    <path d="M52 40
+             V44
+             C52 48 57 48 57 44
+             C57 43 56 42 55 42"
+          stroke-width="2.2"/>
+
+    <!-- Base -->
+    <path d="M27 55 H40"
+          stroke-width="3"/>
+
+    <path d="M24 58 H43"
+          stroke-width="3"
+          stroke-linecap="round"/>
+
+    <!-- Ligne de sol -->
+    <path d="M18 60 H50"
+          stroke-width="1.8"
+          opacity=".45"/>
+
+</svg>
+</div>
+
+                </div>
+
+
+                <div class="kpi-content">
+
+                    <span class="kpiTitre">
+                        QUANTITÉ TRAVAUX
+                    </span>
+
+                    <strong class="kpiValue"
+                            id="kpiRT">
+                        0 m³
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- KPI 3 -->
+
+            <div class="kpi-card kpi-ecart">
+
+                <div class="kpi-icon ecart-icon">
+
+                    <svg viewBox="0 0 64 64"
+                         xmlns="http://www.w3.org/2000/svg">
+
+                        <path d="M32 7L58 54H6L32 7Z"
+                              fill="none"
+                              stroke="currentColor"
+                              stroke-width="4"
+                              stroke-linejoin="round"/>
+
+                        <line x1="32"
+                              y1="23"
+                              x2="32"
+                              y2="38"
+                              stroke="currentColor"
+                              stroke-width="5"
+                              stroke-linecap="round"/>
+
+                        <circle cx="32"
+                                cy="46"
+                                r="2.5"
+                                fill="currentColor"/>
+
+                    </svg>
+
+                </div>
+
+
+                <div class="kpi-content">
+
+                    <span class="kpiTitre">
+                        ÉCART TOTAL
+                    </span>
+
+                    <strong class="kpiValue"
+                            id="kpiEcart">
+                        0 m³
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             TABLEAU
+        ================================================== -->
+
+        <section class="table-card">
+
+
+            <!-- TITRE -->
+
+            <div class="table-header">
+
+                <div class="table-title">
+
+                    <div class="table-title-icon">
+
+                        <svg viewBox="0 0 64 64"
+                             xmlns="http://www.w3.org/2000/svg">
+
+                            <rect x="8"
+                                  y="10"
+                                  width="48"
+                                  height="44"
+                                  rx="4"
+                                  fill="none"
+                                  stroke="currentColor"
+                                  stroke-width="4"/>
+
+                            <line x1="8"
+                                  y1="25"
+                                  x2="56"
+                                  y2="25"
+                                  stroke="currentColor"
+                                  stroke-width="4"/>
+
+                            <line x1="24"
+                                  y1="25"
+                                  x2="24"
+                                  y2="54"
+                                  stroke="currentColor"
+                                  stroke-width="4"/>
+
+                            <line x1="40"
+                                  y1="25"
+                                  x2="40"
+                                  y2="54"
+                                  stroke="currentColor"
+                                  stroke-width="4"/>
+
+                            <line x1="8"
+                                  y1="39"
+                                  x2="56"
+                                  y2="39"
+                                  stroke="currentColor"
+                                  stroke-width="4"/>
+
+                        </svg>
+
+                    </div>
+
+
+                    <div>
+
+                        <h2>
+                            Recoupement des quantités
+                        </h2>
+
+                        <p>
+                            Rapports Gestionnaire
+                            <span>↔</span>
+                            Rapports Travaux
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="table-period">
+
+                    <span>
+                        Mois :
+                    </span>
+
+                    <strong id="tableMois">
+                        Août 2026
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- TABLE -->
+
+            <div class="table-container">
+
+                <table id="TableauEcart">
+
+                    <thead>
+
+                        <tr id="headerResponsables">
+
+                            <th class="date-header"
+                                rowspan="2">
+
+                                Date
+
+                            </th>
+
+                            <!-- JS -->
+
+                        </tr>
+
+
+                        <tr id="headerTypes">
+
+                            <!-- JS -->
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody id="TableauBody">
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+
+            <!-- Barre de défilement visuelle -->
+
+            <div class="scroll-hint">
+
+                <div></div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer>
+
+        <span>
+            GRAND STADE HASSAN II
+        </span>
+
+        <span>
+            TGCC
+        </span>
+
+    </footer>
+
+
+
+    <!-- JS -->
+
+    <script src="script/Script.js"></script>
+
+</body>
+
+</html>
