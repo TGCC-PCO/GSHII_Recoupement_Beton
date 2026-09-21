@@ -35,7 +35,7 @@ let moisSelectionne = "";
    CHARGEMENT DU JSON
 ========================================================= */
 
-fetch("../data/data.json")
+fetch("data/data.json")
 
     .then(response => {
 
