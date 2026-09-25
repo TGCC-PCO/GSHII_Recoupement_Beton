@@ -561,88 +561,6 @@ function mettreAJourHeader(
 
 }
 
-/* ============================================================
-   COMPENSATION DES ECARTS - AFFICHAGE UNIQUEMENT
-   ============================================================ */
-
-function obtenirCellulesCompensees(donneesMois, dates, responsables, types) {
-
-    const cellulesCompensees = new Set();
-
-    dates.forEach(dateISO => {
-
-        types.forEach(type => {
-
-            const negatifs = [];
-            const positifs = [];
-
-            responsables.forEach(responsable => {
-
-                const valeur = obtenirEcart(
-                    donneesMois,
-                    dateISO,
-                    responsable,
-                    type
-                );
-
-                if (valeur < -0.01) {
-
-                    negatifs.push({
-                        responsable: responsable,
-                        valeur: valeur
-                    });
-
-                } else if (valeur > 0.01) {
-
-                    positifs.push({
-                        responsable: responsable,
-                        valeur: valeur
-                    });
-                }
-            });
-
-
-            /* ------------------------------------------------
-               Recherche des paires exactes
-               Exemple :
-               -2 ↔ +2  → compensés
-               -5 ↔ +2  → pas compensés
-               ------------------------------------------------ */
-
-            negatifs.forEach(negatif => {
-
-                const indexPositif = positifs.findIndex(
-                    positif =>
-                        Math.abs(
-                            Math.abs(negatif.valeur)
-                            - Math.abs(positif.valeur)
-                        ) < 0.01
-                );
-
-                if (indexPositif !== -1) {
-
-                    const positif =
-                        positifs[indexPositif];
-
-                    /* Marquer les deux cellules */
-                    cellulesCompensees.add(
-                        `${dateISO}|${negatif.responsable}|${type}`
-                    );
-
-                    cellulesCompensees.add(
-                        `${dateISO}|${positif.responsable}|${type}`
-                    );
-
-                    /* Empêcher cette valeur positive
-                       d'être utilisée une deuxième fois */
-                    positifs.splice(indexPositif, 1);
-                }
-            });
-        });
-    });
-
-    return cellulesCompensees;
-}
 
 /* =========================================================
    CONSTRUCTION DU TABLEAU
@@ -683,13 +601,6 @@ function construireTableau(
         comparerDates
     );
 
-    const cellulesCompensees =
-    obtenirCellulesCompensees(
-        donneesMois,
-        dates,
-        responsables,
-        types
-    );
 
     /*
        Une ligne par date
@@ -754,21 +665,19 @@ function construireTableau(
                                     type
                                 );
 
-                            totalDate += valeur;
-                              
-                                const cleCompensation =
-                                 `${dateISO}|${responsable}|${type}`;
 
-                                const estCompense =
-                                  cellulesCompensees.has(cleCompensation);
+                            totalDate +=
+                                valeur;
+
 
                             /*
                                Affichage
                             */
 
                             if (
-                                 estCompense ||
-                                 Math.abs(valeur) < 0.1
+                                Math.abs(
+                                    valeur
+                                ) < 0.1
                             ) {
 
                                 cell.textContent =
